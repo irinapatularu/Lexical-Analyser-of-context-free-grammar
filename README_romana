@@ -1,0 +1,22 @@
+Nume: PĂTULARU Ioana-Irina
+Grupa: CB331
+	Pentru lexer am optat pentru citirea caracter cu caracter din fisier, 
+fiecare caracter ducandu-ma intr-o stare noua. Astfel, am impus ca prima 
+stare, INITIAL, sa oblige inputul sa inceapa cu "(" si apoi sa se treaca 
+intr-o stare noua care sa-l oblige sa fie"{". La intalnirea unui simbol acesta
+se retinea si se trecea intr-o stare in care se astepta un separator sau "}" ce
+marca sfarsitul primei multimi. Analog s-a mers mai departe cu stari si pentru
+alfabet. Pentru reguli, din nou se incepea cu o stare pentru "{" continuandu-se
+fie cu "(" daca multimea nu e vida, fie cu "}". Totul se retine in vectori
+(simbolurile si alfabetul) iar regulile intr-un map avand ca cheie un non
+terminal si ca valoare un vector de string-uri pentru cu toate sirurile cu 
+care se poate inlocui. Odata cu citirea am si marcat intr-un vector care non
+terminal duce la derivarea unui sir. Pentru erorile de sintaxa am rezolvat prin
+adaugarea unei reguli finale pe care se ajungea in orice moment in care nu se 
+facea match pe ce trebuie. Pentru algoritm in sine in ceea ce priveste intreba
+rile, pentru verificarea terminalilor inutili s-au parcurs pe rand toti netermi
+nalii nemarcati si in regulile lor s-au inlocuit nonterminalii ce duceau la 
+siruri. Cand nu mai era niciun neterminal de inlocuit se afisau cei nemarcati. 
+Pentru "has-e" s-a aplicat acelasi algoritm si s-a verificat daca simbolul de 
+start are vreo regula ce contine numai 'e'. Pentru "is-void" doar s-a verificat
+daca simbolul de start se gaseste printre nonterminalii inutili.
